@@ -187,7 +187,7 @@
           color: $secondaryColor;
           width: 180px;
           margin-bottom: 5px;
-          font-family: "Arial black", "Arial bold", sans-serif;
+          font-family: $logoFont;
           letter-spacing: -2px;
           font-size: 36px;
           b {
@@ -413,7 +413,7 @@
           span {
             color: $mainColor;
             margin-bottom: 5px;
-            font-family: "Arial black", "Arial bold", sans-serif;
+            font-family: $logoFont;
             letter-spacing: -2px;
             font-size: 36px;
             font-weight: 900;
