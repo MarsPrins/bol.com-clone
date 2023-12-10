@@ -11,6 +11,7 @@ import { useEffect, useRef, useState } from "react";
 import categoryArray from "../categoryArray";
 import Loading from "../Loading";
 import useApiUrl from "../apiUrl";
+import Link from "next/link";
 
 const CategoryList = () => {
   const [data, setData] = useState([]);
@@ -77,8 +78,10 @@ const CategoryList = () => {
           {data.length > 0 ? (
             data.map((category, index) => (
               <li key={index}>
-                <img src={category.img} alt="category image" />
-                <p>{category.category}</p>
+                <Link href={`/nl/category/x/${category.category}`}>
+                  <img src={category.img} alt="category image" />
+                  <p>{category.category}</p>
+                </Link>
               </li>
             ))
           ) : (
