@@ -25,7 +25,7 @@ export default async function Page({ params }) {
             <div className={s.rating}>
               <RatingComp rating={res.starRating} />
             </div>
-            {res.starRating}/5 ({res.reviewsAmnt})
+            {res.starRating.toFixed(1)}/5 ({res.reviewsAmnt})
           </li>
         </ul>
         <div className={s.items}>

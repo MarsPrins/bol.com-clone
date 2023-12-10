@@ -28,6 +28,9 @@
       li {
         position: relative;
         min-width: 80px;
+        a {
+          text-decoration: none;
+        }
         @include w770 {
           min-width: 120px;
         }

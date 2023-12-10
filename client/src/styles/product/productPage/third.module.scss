@@ -9,7 +9,10 @@
       padding-bottom: 1rem;
     }
     .bioWrapper {
-      max-width: 50%;
+      max-width: 100%;
+      @include tablet {
+        max-width: 50%;
+      }
       position: relative;
       padding-bottom: 2rem;
       .overflow {
