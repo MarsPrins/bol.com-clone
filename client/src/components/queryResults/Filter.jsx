@@ -323,7 +323,7 @@ function Filter(props) {
                           <label htmlFor={item}>{item}</label>
                         </div>
                       ) : (
-                        item
+                        <div key={i}>{item}</div>
                       )}
                     </li>
                   ))}
