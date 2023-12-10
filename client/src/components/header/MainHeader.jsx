@@ -79,13 +79,12 @@ async function MainHeader() {
             <ul>
               <li>
                 <button>
-                  <Link href={loggedIn == true ? "" : "/auth/login"}>
-                    <svg viewBox="0 0 24 24">
-                      <path
-                        fill="currentColor"
-                        d="M12 24c-3 0-7.1-.7-9-2.5-.6-.6-1-1.4-1-2.2 0-3.8 2.6-7.2 6.3-8.6C6.9 9.6 6 7.9 6 6c0-3.3 2.7-6 6-6s6 2.7 6 6c0 1.9-.9 3.6-2.3 4.7 3.6 1.4 6.3 4.8 6.3 8.6 0 3.4-6 4.7-10 4.7zm0-12c-4.3 0-8 3.3-8 7.3 0 .1 0 .4.4.7 1.1 1.1 4.3 2 7.6 2 4.5 0 8-1.5 8-2.7 0-4-3.7-7.3-8-7.3zm0-10C9.8 2 8 3.8 8 6s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4z"
-                      />
-                    </svg>
+                  <Link
+                    href={
+                      loggedIn == true ? "/nl/auth/logout" : "/nl/auth/login"
+                    }
+                  >
+                    <p>{loggedIn ? "Uitloggen" : "Inloggen"}</p>
                   </Link>
                 </button>
               </li>

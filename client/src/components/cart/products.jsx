@@ -90,8 +90,12 @@ export default function Products({ onDelete }) {
         productData.quantity = quantity;
         productData.userId = userId;
         productArray.push(productData);
-        const price = productData.price * productData.quantity;
-        const priceDecimal = productData.priceDecimal * productData.quantity;
+        const price = productData.onSale
+          ? productData.onSale.newPrice * productData.quantity
+          : productData.price * productData.quantity;
+        const priceDecimal = productData.onSale
+          ? productData.onSale.newPriceDecimal * productData.quantity
+          : productData.priceDecimal * productData.quantity;
         prices.push(price);
         pricesDecimals.push(priceDecimal);
       } else {

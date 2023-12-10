@@ -22,13 +22,18 @@
     }
     .away {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
+      gap: 2rem;
       justify-content: space-between;
       width: 100%;
       position: relative;
       scale: 0.9;
       @include mobile {
         scale: 1;
+      }
+      @include tablet {
+        gap: 0;
+        flex-direction: row;
       }
       .info {
         display: flex;
@@ -120,9 +125,6 @@
         }
       }
       .price {
-        position: absolute;
-        bottom: -2rem;
-        left: -100px;
         @include mobile {
           position: unset;
           bottom: 0;

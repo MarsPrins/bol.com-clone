@@ -10,7 +10,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 function Atc(props) {
-  const [noti, setNoti] = useState(false);
   const productId = props.productId;
   const size = props.size && props.size;
 
@@ -64,7 +63,6 @@ function Atc(props) {
       console.log(data);
 
       localStorage.setItem("cart", JSON.stringify(data));
-      setNoti(true);
       setTimeout(function () {
         setNoti(false);
       }, 400);
@@ -98,13 +96,9 @@ function Atc(props) {
             },
           });
           console.log(res.data);
-          setNoti(true);
-          setTimeout(function () {
-            setNoti(false);
-          }, 400);
+          setTimeout(function () {}, 400);
         } catch (error) {
           console.log(error);
-          setNoti(false);
         }
       } else if (cartRes !== null) {
         // otherwise update the cart
@@ -151,25 +145,17 @@ function Atc(props) {
               },
             });
             console.log(res.data);
-            setNoti(true);
-            setTimeout(function () {
-              setNoti(false);
-            }, 400);
+            setTimeout(function () {}, 400);
           }
         } catch (error) {
           console.log(error);
-          setNoti(false);
         }
       }
     }
   };
 
   return (
-    <button
-      disabled={disabled}
-      onClick={addToCart}
-      className={noti ? `${s.atc} ${s.active}` : s.atc}
-    >
+    <button disabled={disabled} onClick={addToCart} className={s.atc}>
       {!props.text && (
         <svg viewBox="0 0 24 24">
           <path

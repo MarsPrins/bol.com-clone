@@ -86,7 +86,7 @@ export default function CartProduct(props) {
               </div>
             </div>
           </div>
-          <div className={s.price}>
+          <div className={p.onSale ? `${s.price} ${s.sale}` : s.price}>
             <Price
               price={p.onSale ? p.onSale.newPrice : p.price}
               priceDecimal={p.priceDecimal}
