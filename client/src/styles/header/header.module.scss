@@ -1,0 +1,728 @@
+@import "@/styles/variables.scss";
+
+.mobileHeader {
+  height: 120px;
+
+  * {
+    padding: 0;
+  }
+  @include laptop {
+    display: none;
+  }
+  button {
+    border: none;
+    outline: none;
+    background: none;
+  }
+  .topHeaderCont {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    background: $mainColor;
+    padding: 0 2rem 0 0;
+    position: relative;
+
+    .left {
+      width: 45%;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      flex-direction: row;
+      gap: 1rem;
+
+      a {
+        text-decoration: none;
+      }
+
+      .overlay {
+        z-index: 9997;
+        background: #00000063;
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+      }
+      .menuButton {
+        z-index: 9998;
+
+        .mobileMenu {
+          z-index: 9998;
+
+          .icon {
+            color: $secondaryColor;
+            border: none;
+            background: none;
+            scale: 1.3;
+            cursor: pointer;
+            padding-left: 2rem;
+          }
+
+          .menuCont {
+            .menu {
+              translate: -100vw 0;
+              position: fixed;
+              background: $mainColor;
+              transition: 0.4s;
+              top: 0;
+              width: 100%;
+              @include mobile {
+                width: 50%;
+              }
+              .top {
+                border-bottom: 1px solid $greyBorder;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                .countries {
+                  padding: 1rem;
+                  ul {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 0.8rem;
+                  }
+                }
+                .cross {
+                  cursor: pointer;
+                  padding: 1rem;
+                  border-left: solid 1px $greyBorder;
+                }
+              }
+              .bottom {
+                height: 100vh;
+                overflow-y: scroll;
+                .products {
+                  padding-bottom: 2rem;
+                  .blocks {
+                    a {
+                      text-decoration: none;
+                    }
+                    .title {
+                      text-align: left;
+                      display: block;
+                      padding: 1.5rem;
+                      color: $lightSecondary;
+                      display: flex;
+                      flex-direction: row;
+                      justify-content: space-between;
+                      cursor: pointer;
+                      .closed {
+                        rotate: -90deg;
+                        transition: 0.5s;
+                      }
+                      .open {
+                        rotate: 0deg;
+                      }
+                    }
+                    .title.big {
+                      padding: 2rem 1.5rem;
+                      font-family: $titleFont;
+                      font-weight: 900;
+                      font-size: 20px;
+                      background: $lighterSecondary;
+                      border-bottom: solid 1px $greyBorder;
+                    }
+                    .title.border {
+                      border-bottom: solid 1px $greyBorder;
+                    }
+                    .cats {
+                      max-height: 0;
+                      overflow-y: hidden;
+                      transition: 0.5s;
+                      border-bottom: solid 1px $greyBorder;
+                    }
+                    .cats.active {
+                      max-height: 500px;
+                      overflow-y: scroll;
+                    }
+                  }
+                }
+                .account {
+                  ul {
+                    text-align: left;
+                    &:nth-child(1) {
+                      border-top: solid 1px $greyBorder;
+                    }
+                    li {
+                      border-bottom: solid 1px $greyBorder;
+                      padding: 1rem;
+                      display: flex;
+                      flex-direction: row;
+                      justify-content: space-between;
+                      svg {
+                        rotate: -90deg;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            .menu.active {
+              translate: 0 0;
+            }
+          }
+
+          .overlay {
+            width: 100vw;
+            height: 150vh;
+            background: #00000063;
+            position: absolute;
+            top: 0;
+            z-index: -1;
+            opacity: 0;
+            transition: 0.4s;
+            pointer-events: none;
+          }
+          .overlay.active {
+            pointer-events: all;
+            opacity: 1;
+          }
+        }
+      }
+      .logo {
+        text-decoration: none;
+        span {
+          color: $secondaryColor;
+          width: 180px;
+          margin-bottom: 5px;
+          font-family: $logoFont;
+          letter-spacing: -2px;
+          font-size: 36px;
+          b {
+            font-family: $titleFont;
+          }
+        }
+      }
+    }
+    .right {
+      width: 45%;
+      position: relative;
+      ul {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        flex-direction: row;
+        gap: 1rem;
+
+        li {
+          padding: 0;
+          margin: 0;
+
+          .cart {
+            position: relative;
+            .amount {
+              position: absolute;
+              top: -10px;
+              right: -10px;
+              background: $yellow;
+              border-radius: 50%;
+              width: 20px;
+              aspect-ratio: 1/1;
+              // font-weight: 900;
+              font-size: 12px;
+            }
+          }
+          a {
+            svg {
+              width: 20px;
+              color: $secondaryColor;
+            }
+          }
+        }
+      }
+    }
+  }
+  .bottomHeaderCont {
+    height: auto;
+    background: $secondaryColor;
+    padding: 1rem 1.3rem 1rem 1.3rem;
+    position: relative;
+    .inputCont {
+      width: 100%;
+      .fullInput {
+        z-index: 999;
+        width: 100%;
+        border-radius: 40px;
+        background: $mainColor;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 1rem;
+        position: relative;
+        input {
+          border: none;
+          outline: none;
+          width: 90%;
+          font-weight: 200;
+          &::placeholder {
+            font-size: 13px;
+            opacity: 0.5;
+          }
+        }
+        svg {
+          width: 20px;
+          color: $secondaryColor;
+          cursor: pointer;
+        }
+      }
+    }
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    .output {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 70px;
+      left: 50%;
+      translate: -50% 0;
+      background: $mainColor;
+      border: solid 2px gray;
+      border-radius: 2px;
+      z-index: 9999;
+      width: 300px;
+      max-height: 300px;
+      overflow-y: scroll;
+      animation: fadeIn 0.2s ease forwards;
+      @include mobile {
+        width: 400px;
+      }
+      @include w770 {
+        width: 500px;
+      }
+
+      ul {
+        li {
+          padding: 0.3rem 1rem 0.3rem 0.5rem;
+          cursor: pointer;
+          color: $blackText;
+
+          &:hover {
+            background: $lighterSecondary;
+          }
+          button {
+            cursor: pointer;
+            color: $blackText;
+          }
+        }
+        li.hovered {
+          background: $lighterSecondary;
+        }
+      }
+
+      span {
+        font-size: 12px;
+        padding-left: 0.5rem;
+      }
+    }
+    .outputNoData {
+      padding: 0;
+      border: none;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.428);
+      height: 120vh;
+      width: 120vw;
+      z-index: 99;
+      animation: fadeIn 0.2s ease forwards;
+    }
+  }
+}
+
+// desktop
+
+.selectHeader {
+  width: 100vw;
+  padding: 0 2rem;
+  font-size: 12px;
+  display: none;
+
+  @include laptop {
+    display: block;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    height: 30px;
+    @extend .maxWidth;
+
+    .left ul {
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      gap: 1rem;
+      padding-left: 2rem;
+      color: $secondaryColor;
+    }
+    .right p {
+      color: $green;
+      padding-right: 2rem;
+    }
+  }
+}
+
+.desktopHeader {
+  display: none;
+  @include laptop {
+    display: block;
+  }
+  button {
+    border: none;
+    outline: none;
+    background: none;
+  }
+  .mainHeaderCont {
+    background: $secondaryColor;
+    height: 100%;
+
+    .content {
+      @extend .maxWidth;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 2rem;
+
+      .left {
+        width: 45%;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        flex-direction: row;
+        gap: 1rem;
+        position: relative;
+
+        .logo {
+          text-decoration: none;
+          span {
+            color: $mainColor;
+            margin-bottom: 5px;
+            font-family: $logoFont;
+            letter-spacing: -2px;
+            font-size: 36px;
+
+            b {
+              font-family: $titleFont;
+            }
+          }
+        }
+      }
+      .inputCont {
+        width: 100%;
+        height: 80%;
+        .fullInput {
+          width: 100%;
+          border-radius: 40px;
+          background: $mainColor;
+          display: flex;
+          justify-content: space-between;
+          padding: 8px 1rem;
+          z-index: 999;
+          position: relative;
+          input {
+            border: none;
+            outline: none;
+            width: 90%;
+            font-weight: 200;
+            &::placeholder {
+              font-size: 13px;
+              opacity: 0.4;
+            }
+          }
+          svg {
+            width: 20px;
+            color: $secondaryColor;
+            cursor: pointer;
+            margin-top: 5px;
+          }
+        }
+      }
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      .output {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100px;
+        left: 50%;
+        translate: -50% 0;
+        background: $mainColor;
+        border: solid 2px gray;
+        border-radius: 2px;
+        z-index: 999;
+        width: 500px;
+        max-height: 300px;
+        overflow-y: scroll;
+        animation: fadeIn 0.2s ease forwards;
+
+        ul {
+          li {
+            padding: 0.3rem 1rem 0.3rem 0.5rem;
+            cursor: pointer;
+
+            &:hover {
+              background: $lighterSecondary;
+            }
+            button {
+              cursor: pointer;
+            }
+          }
+          li.hovered {
+            background: $lighterSecondary;
+          }
+        }
+
+        span {
+          font-size: 12px;
+          padding-left: 0.5rem;
+        }
+      }
+      .outputNoData {
+        padding: 0;
+        border: none;
+      }
+
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.428);
+        height: 120vh;
+        width: 120vw;
+        z-index: 99;
+        animation: fadeIn 0.2s ease forwards;
+      }
+      .right {
+        width: 45%;
+        position: relative;
+        ul {
+          display: flex;
+          justify-content: right;
+          align-items: center;
+          flex-direction: row;
+          gap: 1rem;
+
+          li {
+            .cart {
+              position: relative;
+              .amount {
+                position: absolute;
+                top: -10px;
+                right: -10px;
+                background: $yellow;
+                border-radius: 50%;
+                width: 20px;
+                aspect-ratio: 1/1;
+                // font-weight: 900;
+                font-size: 12px;
+              }
+            }
+            a {
+              text-decoration: none;
+
+              p {
+                margin: 0 -0.5rem 7px 0;
+                color: $mainColor;
+                font-size: 12px;
+                font-weight: 200;
+                &:hover {
+                  text-decoration: underline;
+                }
+              }
+              svg {
+                width: 20px;
+                color: $mainColor;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.shopCont {
+  .overlay {
+    transition: 0.4s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    background: #00000051;
+    z-index: 10;
+    pointer-events: none;
+    opacity: 0;
+  }
+  .overlay.active {
+    opacity: 1;
+  }
+  .topShopHeader {
+    background: $mainColor;
+    display: none;
+    position: relative;
+    z-index: 15;
+    @include laptop {
+      display: block;
+    }
+    .container {
+      @extend .maxWidthMain;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      align-items: center;
+      .left ul {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: left;
+        cursor: pointer;
+        a {
+          text-decoration: none;
+        }
+        li {
+          padding: 0.5rem 2rem;
+
+          &:hover p::after {
+            height: 5px;
+            position: absolute;
+            bottom: 0;
+          }
+          &:nth-child(1) {
+            padding: 0.5rem 2rem 0.5rem 1rem;
+            @include maxContent {
+              padding: 0.5rem 2rem 0.5rem 0;
+            }
+          }
+          p {
+            font-size: 14px;
+            position: relative;
+            padding: 0.5rem 0;
+            &::after {
+              content: "";
+              position: absolute;
+              left: 0;
+              bottom: 0;
+              height: 0;
+              background: $lightSecondary;
+              width: 100%;
+              -webkit-transition: all 0.2s;
+              transition: all 0.2s;
+            }
+          }
+        }
+      }
+      .right ul {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: left;
+        cursor: pointer;
+        gap: 1rem;
+        font-size: 11px;
+        li {
+          button {
+            border: none;
+            outline: none;
+            background: none;
+            a {
+              text-decoration: none;
+              color: $blackText;
+
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+        .country {
+          margin-left: -15px;
+        }
+      }
+    }
+    .menuWrapper {
+      // display: none;
+      background: $mainColor;
+      width: 100%;
+      position: absolute;
+      z-index: 9997;
+      .menuContent {
+        @extend .maxWidthMain;
+        width: 100%;
+        z-index: 9999;
+      }
+      // padding: 0.5rem 4rem;
+    }
+  }
+
+  .bottomShopHeader {
+    background: $lighterSecondary;
+    display: none;
+    @include laptop {
+      display: block;
+    }
+    .container {
+      @extend .maxWidth;
+      padding: 0.2rem 1rem;
+      ul {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: right;
+        gap: 2rem;
+        li {
+          button {
+            background: none;
+            outline: none;
+            border: none;
+            a {
+              text-decoration: none;
+              color: $blackText;
+              font-size: 14px;
+              cursor: pointer;
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+        .special button a {
+          font-family: $titleFont;
+          color: $lightSecondary;
+          font-size: 25px;
+          margin-left: -5px;
+          svg {
+            scale: 0.5;
+            margin-bottom: -3px;
+          }
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}

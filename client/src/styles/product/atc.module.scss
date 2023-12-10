@@ -1,0 +1,90 @@
+@import "../variables.scss";
+
+@keyframes success {
+  0% {
+    background: linear-gradient(
+      90deg,
+      rgba(254, 189, 0, 1) 100%,
+      rgba(6, 171, 58, 1) 100%
+    );
+  }
+  100% {
+    background: linear-gradient(
+      90deg,
+      rgba(254, 189, 0, 1) 0%,
+      rgba(6, 171, 58, 1) 0%
+    );
+  }
+}
+
+@keyframes move {
+  0% {
+    background-position: -800px 600px;
+  }
+  50% {
+    background-position: 0px 600px;
+  }
+  100% {
+    background-position: -800px 600px;
+  }
+}
+
+.atc {
+  height: 100%;
+  background: $yellow;
+  border-radius: 4px;
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.3rem;
+  transition: 0.2s;
+  cursor: pointer;
+  justify-content: space-between;
+  border: none;
+  outline: none;
+  position: relative;
+
+  &:disabled {
+    background: $shadow;
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  span {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  svg {
+    width: 24px;
+    aspect-ratio: 1/1;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    border-radius: 4px;
+
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: -1;
+    background-image: linear-gradient(
+      90deg,
+      rgba(6, 171, 58, 1) 0%,
+      rgba(254, 189, 0, 1) 100%
+    );
+    background-size: 800px 800px;
+    background-position: 0px 0px;
+    animation: move 0.4s linear;
+    opacity: 0;
+    transition: opacity 1s;
+  }
+}
+.atc.active {
+  background: transparent;
+  &:after {
+    opacity: 1;
+  }
+}

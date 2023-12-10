@@ -1,0 +1,22 @@
+@import "../variables.scss";
+.stock {
+  span {
+    padding: 0.3rem;
+    border: solid 1px $darkGreen;
+    font-size: 13px;
+    font-weight: 800;
+    color: $darkGreen;
+  }
+  .out {
+    color: $red;
+    border: solid 1px $red;
+  }
+  .not {
+    display: none;
+  }
+  p {
+    padding-top: 0.4rem;
+    font-size: 12px;
+    color: $darkGreen;
+  }
+}

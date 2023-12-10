@@ -1,0 +1,112 @@
+@import "../../variables.scss";
+
+.container {
+  position: relative;
+  .content {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    .choices {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      .blocks {
+        display: flex;
+        flex-direction: column;
+        .blocksLi {
+          .title {
+            font-weight: 700;
+            font-size: 15px;
+            text-transform: capitalize;
+          }
+          .items {
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+            padding-top: 0.5rem;
+            a {
+              text-decoration: none;
+            }
+            li {
+              border-radius: 3px;
+              padding: 1rem 1.5rem 1.1rem 1.5rem;
+              font-size: 14px;
+              font-weight: 700;
+              border: solid 1px $greyBorder;
+              text-align: center;
+              transition: 0.2s;
+              cursor: pointer;
+              color: $blackText;
+              &:hover {
+                border: solid 1px $greyBorderHover;
+              }
+            }
+            .current {
+              //   border: solid 1px $lightSecondary;
+              outline: solid 1px $lightSecondary;
+            }
+          }
+        }
+      }
+      .sizes {
+        display: flex;
+        flex-direction: column;
+        span {
+          font-weight: 700;
+          font-size: 15px;
+        }
+        select {
+          background: $mainColor;
+          margin-top: 1rem;
+          width: fit-content;
+          border-radius: 3px;
+          padding: 0.4rem 1rem;
+          font-size: 14px;
+          font-weight: 700;
+          border: solid 1px $greyBorder;
+          text-align: center;
+          transition: 0.2s;
+          cursor: pointer;
+          color: $blackText;
+          &:focus {
+            border: solid 1px $lightSecondary;
+          }
+        }
+      }
+    }
+    .orderInfo {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      .seller {
+        font-size: 14px;
+      }
+      .interactive {
+        display: flex;
+        flex-direction: row;
+        height: 50px;
+        gap: 1rem;
+        .cart,
+        .heart {
+          height: 50px;
+          position: relative;
+        }
+      }
+      .orderPromises {
+        ul {
+          li {
+            font-size: 14px;
+            font-weight: 300;
+            b,
+            svg,
+            a {
+              color: $darkGreen;
+              font-weight: 800;
+            }
+          }
+        }
+      }
+    }
+  }
+}

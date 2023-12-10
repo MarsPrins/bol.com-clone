@@ -1,0 +1,93 @@
+@import "../../variables.scss";
+
+.container {
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    .currImage {
+      max-width: 100%;
+      height: 550px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      max-width: 560px;
+
+      img {
+        object-fit: contain;
+        max-width: 100%;
+        max-height: 550px;
+        height: 100%;
+      }
+    }
+    .images {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      overflow: scroll;
+      width: 560px;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid $greyBorder;
+      ::-webkit-scrollbar {
+        display: none;
+      }
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+      overscroll-behavior-x: none;
+
+      ul {
+        scale: 0.95;
+        display: flex;
+        gap: 1rem;
+        flex-direction: row;
+        .current {
+          outline: solid 1px $blackText;
+        }
+        li {
+          border: solid 1px $greyBorder;
+          border-radius: 3px;
+          width: 100px;
+          height: 100px;
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: 0.3s;
+
+          &:hover {
+            border: solid 1px $greyBorderHover;
+          }
+          img {
+            object-fit: contain;
+            height: 80px;
+            width: 80px;
+          }
+        }
+      }
+    }
+    .extraInfo {
+      border-bottom: 1px solid $greyBorder;
+      padding-bottom: 1rem;
+      ul {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        scale: 0.95;
+        li {
+          display: flex;
+          align-items: center;
+          position: relative;
+          font-size: 13px;
+          &:not(:first-child)::before {
+            content: "|";
+            width: 1px;
+            height: 100%;
+            position: absolute;
+            left: -0.5rem;
+          }
+        }
+      }
+    }
+  }
+}

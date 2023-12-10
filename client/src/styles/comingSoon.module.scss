@@ -1,0 +1,82 @@
+@import "./variables";
+
+.container {
+  position: relative;
+  padding: 50px 0 100px 0;
+  .content {
+    @extend .maxWidthMain;
+    padding: 1.5rem;
+    display: flex;
+    gap: 3rem;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    .coming {
+      display: flex;
+      justify-content: left;
+      width: 100%;
+
+      .comingCont {
+        rotate: -10deg;
+        font-family: $logoFont;
+        color: $secondaryColor;
+        font-size: 50px;
+        font-weight: 900;
+        letter-spacing: -2px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 2rem;
+        gap: 1rem;
+        scale: 1.3;
+        opacity: 0.8;
+        pointer-events: none;
+        user-select: none;
+
+        @include mobile {
+          font-size: 70px;
+          letter-spacing: -4px;
+          padding: 4rem;
+        }
+
+        p {
+          line-height: 1.3ch;
+          text-align: right;
+          color: $lightSecondary;
+          font-weight: 1000;
+        }
+        svg {
+          width: 110px;
+          margin-top: 20px;
+          color: $lightSecondary;
+          rotate: 10deg;
+        }
+      }
+    }
+    .bottom {
+      width: 100%;
+      display: flex;
+      justify-content: right;
+
+      .bottomCont {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        max-width: 500px;
+        .head {
+          font-family: $logoFont;
+          font-size: 34px;
+          letter-spacing: -2px;
+          line-height: 1.5ch;
+          flex: 1;
+          text-align: right;
+        }
+        p {
+          flex: 1;
+          text-align: right;
+        }
+      }
+    }
+  }
+}

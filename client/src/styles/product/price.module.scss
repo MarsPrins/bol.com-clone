@@ -1,0 +1,120 @@
+@import "../variables.scss";
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 220px;
+  .content {
+    .regular {
+      font-family: $titleFont;
+      color: $red;
+      position: relative;
+      .int {
+        font-size: 30px;
+        font-weight: 900;
+      }
+      .float {
+        font-size: 18px;
+        position: relative;
+        right: 0.5rem;
+        bottom: 0.5rem;
+        font-weight: 900;
+      }
+    }
+    .sale {
+      .prices {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        margin-bottom: 0.3rem;
+        .main {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          height: 45px;
+          width: 100%;
+          gap: 1rem;
+          overflow: hidden;
+
+          .price {
+            font-family: $titleFont;
+            color: $mainColor;
+            position: relative;
+            background: $red;
+            padding: 0 2rem 0 0.3rem;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            height: 100%;
+
+            &::after {
+              content: "";
+              position: absolute;
+              right: -10px;
+              top: -8px;
+              width: 25px;
+              height: 120%;
+              rotate: -25deg;
+              background-color: $mainColor;
+            }
+
+            .int {
+              font-size: 30px;
+              font-weight: 900;
+              color: $mainColor;
+            }
+            .float {
+              font-size: 18px;
+              position: relative;
+              right: 0.5rem;
+              bottom: 0.2rem;
+              font-weight: 900;
+              color: $mainColor;
+            }
+          }
+          .label {
+            font-weight: 800;
+            color: $red;
+            background: none;
+            border: 1px solid $greyBorder;
+            height: 100%;
+            width: 80px;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 0.5rem;
+            font-size: 13px;
+            position: relative;
+            display: none;
+
+            @include w360 {
+              display: flex;
+            }
+
+            &::after {
+              content: "";
+              position: absolute;
+              left: -13px;
+              top: 0px;
+              width: 25px;
+              height: 130%;
+              rotate: -25deg;
+              border-right: solid 1px $greyBorder;
+              background-color: $mainColor;
+            }
+          }
+        }
+        .oldPrice {
+          font-weight: 200;
+          font-size: 12px;
+        }
+      }
+      .percentage {
+        font-weight: 900;
+        font-size: 12px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+      }
+    }
+  }
+}

@@ -1,0 +1,128 @@
+@import "./variables.scss";
+
+.container {
+  .content {
+    border-top: solid 1px $greyBorder;
+    // border-bottom: solid 1px $greyBorder;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 1rem;
+    @include w770 {
+      padding: 2rem;
+    }
+    .main {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      @include w600 {
+        flex-direction: row;
+        gap: 1.5rem;
+      }
+      .one {
+        position: relative;
+        min-width: 120px;
+        max-width: 180px;
+        @include w600 {
+          min-width: 130px;
+        }
+        img {
+          object-fit: contain;
+        }
+      }
+      .two {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        max-width: 200px;
+        @include w770 {
+          max-width: 400px;
+        }
+        .brandName {
+          font-size: 11px;
+        }
+        a {
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+        h2 {
+          font-size: 12px;
+
+          @include w770 {
+            font-size: 13px;
+          }
+        }
+        .rating {
+          padding: 1rem 0;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          svg {
+            width: 15px;
+            height: 15px;
+          }
+          .numberReviews {
+            font-size: 12px;
+            position: relative;
+            top: -3px;
+          }
+        }
+        .bio {
+          font-weight: 300;
+          font-size: 12px;
+          display: none;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          @include w770 {
+            display: -webkit-box;
+          }
+        }
+        span.more {
+          color: $lightSecondary;
+          font-weight: 200;
+          display: none;
+          @include w770 {
+            display: block;
+          }
+        }
+      }
+    }
+    .main.grid {
+      @include w600 {
+        flex-direction: column;
+      }
+    }
+    .three {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      width: 100%;
+      max-width: 150px;
+      @include w360 {
+        max-width: 220px;
+      }
+
+      .interactive {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        height: 3rem;
+        position: relative;
+
+        .heart {
+          height: 100%;
+          // scale: 1.4;
+          // padding: 0.5rem;
+        }
+      }
+    }
+  }
+  .content.grid {
+    flex-direction: column;
+  }
+}

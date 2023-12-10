@@ -1,0 +1,94 @@
+@font-face {
+  font-family: "ProduktSemiBold";
+  src: url("../fonts/Produkt-Semibold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Logo";
+  src: url("../fonts/ultra/MADE Soulmaze PERSONAL USE.otf") format("opentype");
+}
+@font-face {
+  font-family: "PridiBold";
+  src: url("../fonts/Pridi-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "PridiThin";
+  src: url("../fonts/Pridi-ExtraLight.ttf") format("truetype");
+}
+
+$mainColor: #fff;
+$mainColorHover: #f3f3f3;
+$secondaryColor: #0000a4;
+$lightSecondary: #1300ff;
+$lighterSecondary: #f0f6ff;
+$secondaryHover: #3c3eff;
+$thirdColor: #aff2d3;
+$fourthColor: #ffefdd;
+$fourthLight: #fffde5;
+$yellow: #febd00;
+$yellowHover: #fed600;
+$red: #f91907;
+$green: #06ab3a;
+$darkGreen: #007000;
+$greyBorder: #e6e6e8;
+$greyBorderHover: #03031a6a;
+$shadow: #03031a40;
+$blackText: #000;
+$titleFont: "ProduktSemiBold", sans-serif;
+$logoFont: "Logo", impact;
+$titleFontBold: "PridiBold", sans-serif;
+$thinTitleFont: "PridiThin", sans-serif;
+$logoFont: "Arial Bold", "Arial Black";
+
+@mixin w360 {
+  @media screen and (min-width: 360px) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media screen and (min-width: 480px) {
+    @content;
+  }
+}
+@mixin w600 {
+  @media screen and (min-width: 600px) {
+    @content;
+  }
+}
+@mixin w770 {
+  @media screen and (min-width: 770px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media screen and (min-width: 900px) {
+    @content;
+  }
+}
+@mixin laptop {
+  @media screen and (min-width: 1025px) {
+    @content;
+  }
+}
+
+@mixin maxContent {
+  @media screen and (min-width: 1220px) {
+    @content;
+  }
+}
+
+.maxWidth {
+  margin: auto;
+  max-width: 1220px;
+  @include maxContent {
+    padding: 0;
+  }
+}
+
+.maxWidthMain {
+  margin: auto;
+  max-width: 1160px;
+
+  @include maxContent {
+    padding: 0;
+  }
+}

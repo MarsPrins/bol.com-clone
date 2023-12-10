@@ -1,0 +1,177 @@
+@import "../variables.scss";
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  @extend .maxWidthMain;
+  @include mobile {
+    flex-direction: row;
+  }
+}
+.bigPromo {
+  position: relative;
+  padding: 1rem;
+  .content {
+    @extend .maxWidthMain;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(1, 1fr);
+    @include w770 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    a {
+      text-decoration: none;
+    }
+    .left {
+      display: grid;
+      grid-template-areas:
+        "a a a"
+        "b b b"
+        "c c c";
+      @include mobile {
+        grid-template-areas:
+          "b a a"
+          "b c c"
+          "b c c";
+      }
+      @include w770 {
+        grid-template-areas:
+          "a a a"
+          "b b b"
+          "c c c";
+      }
+      @include laptop {
+        grid-template-areas:
+          "b a a"
+          "b c c"
+          "b c c";
+      }
+      gap: 1rem;
+      justify-content: center;
+      padding: 1.5rem;
+      background: $thirdColor;
+      .first {
+        grid-area: a;
+        display: grid;
+        justify-content: center;
+        text-align: center;
+        .title {
+          display: flex;
+          flex-direction: row;
+          svg {
+            width: 30px;
+            color: $secondaryColor;
+          }
+          span {
+            font-size: 30px;
+            color: $secondaryColor;
+            font-family: $titleFont;
+          }
+        }
+        .timer {
+          color: $secondaryColor;
+          font-size: 25px;
+          font-family: $thinTitleFont;
+        }
+      }
+      .thumbnail {
+        grid-area: b;
+
+        @include mobile {
+          width: 250px;
+        }
+
+        padding: 3rem;
+        margin: 0;
+        border-radius: 50%;
+        background: $mainColor;
+        width: 80%;
+        aspect-ratio: 1/1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        justify-self: center;
+
+        img {
+          -moz-user-select: none;
+          -webkit-user-select: none;
+          user-select: none;
+          pointer-events: none;
+        }
+      }
+      .text {
+        grid-area: c;
+        display: grid;
+        justify-content: center;
+        text-align: center;
+
+        p {
+          font-family: $titleFont;
+          font-size: 25px;
+          line-height: 1.8rem;
+        }
+        span {
+          font-size: 10px;
+          color: $blackText;
+        }
+      }
+    }
+    .right {
+      background: #20acff;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      @include mobile {
+        flex-direction: row;
+        justify-content: space-between;
+        min-height: 200px;
+      }
+      img {
+        width: 100%;
+        object-fit: cover;
+        @include mobile {
+          width: 50%;
+        }
+      }
+      .text {
+        padding: 1.5rem 0 0.5rem 1.5rem;
+        line-height: 1.4rem;
+        @include mobile {
+          line-height: 1.5rem;
+        }
+        h3 {
+          font-family: $titleFont;
+          color: $secondaryColor;
+          @include mobile {
+            font-size: 23px;
+          }
+        }
+        p {
+          font-weight: 100;
+          color: $secondaryColor;
+          font-size: 20px;
+          @include mobile {
+            font-size: 25px;
+          }
+        }
+      }
+      .cta {
+        position: absolute;
+        bottom: 1.5rem;
+        left: 1.5rem;
+        padding: 0.5rem 1rem;
+        outline: none;
+        border: none;
+        background: $lightSecondary;
+        cursor: pointer;
+        transition: 0.2s;
+        &:hover {
+          opacity: 0.8;
+        }
+        svg {
+          color: $mainColor;
+        }
+      }
+    }
+  }
+}

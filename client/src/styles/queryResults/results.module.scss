@@ -1,0 +1,24 @@
+@import "../variables.scss";
+
+.resultsContainer {
+  display: flex;
+  gap: 1rem;
+  flex-direction: row;
+  justify-content: space-between;
+  @extend .maxWidthMain;
+
+  .left {
+    position: relative;
+    width: 100%;
+    max-width: 240px;
+    display: none;
+
+    @include laptop {
+      display: block;
+    }
+  }
+  .right {
+    float: right;
+    width: 100%;
+  }
+}

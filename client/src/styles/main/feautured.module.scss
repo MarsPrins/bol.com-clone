@@ -1,0 +1,251 @@
+@import "../variables";
+
+.featured {
+  margin-top: 6px;
+  position: relative;
+
+  .top {
+    position: relative;
+    padding: 0 0 1rem 0;
+    @include mobile {
+      padding: 1rem;
+    }
+    .content {
+      padding: 0;
+      background: $secondaryColor;
+      position: relative;
+      overflow: hidden;
+      @extend .maxWidthMain;
+      @include w770 {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+        max-height: 350px;
+        position: relative;
+      }
+
+      img {
+        height: 80%;
+        width: 100%;
+        position: relative;
+        object-fit: cover;
+        @include w770 {
+          width: 50%;
+          height: auto;
+          max-height: 360px;
+          border-bottom-left-radius: 10%300px;
+          border-top-left-radius: 10%300px;
+        }
+      }
+      .interactive {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+        padding: 1rem;
+
+        @include w770 {
+          flex-direction: column;
+        }
+
+        .text {
+          @include w770 {
+            position: absolute;
+            top: 0.8rem;
+            left: 0.8rem;
+            line-height: 3rem;
+          }
+          @include tablet {
+            line-height: 3rem;
+            position: absolute;
+            top: 3rem;
+            left: 2rem;
+          }
+          h2,
+          p {
+            color: $mainColor;
+          }
+          h2 {
+            font-family: $titleFont;
+            font-size: 30px;
+            @include w770 {
+              font-size: 50px;
+            }
+          }
+          p {
+            font-weight: 100;
+            font-size: 27px;
+            @include w770 {
+              font-size: 45px;
+            }
+          }
+        }
+        .cta {
+          align-self: flex-end;
+          scale: 0.9;
+
+          @include w770 {
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+          }
+          @include tablet {
+            bottom: 2rem;
+            left: 1.5rem;
+            position: absolute;
+          }
+
+          a {
+            text-decoration: none;
+          }
+
+          .mobile {
+            @include w770 {
+              display: none;
+            }
+            cursor: pointer;
+            outline: none;
+            border: none;
+            margin: 0;
+            border-radius: 50%;
+            width: 3rem;
+            height: 3rem;
+            svg {
+              color: $secondaryColor;
+            }
+          }
+          .desktop {
+            display: none;
+            cursor: pointer;
+            outline: none;
+            border: none;
+            border-radius: 3px;
+            background: $lightSecondary;
+            padding: 1rem 2rem;
+            transition: 0.2s;
+            &:hover {
+              opacity: 0.8;
+            }
+            span {
+              color: $mainColor;
+            }
+            @include w770 {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .bottom {
+    position: relative;
+    padding: 0 1rem;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    overflow-x: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    overscroll-behavior-x: none;
+
+    scrollbar-width: none;
+    height: calc(250px + 1.5rem);
+
+    .content {
+      padding: 0;
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      @extend .maxWidthMain;
+      gap: 1rem;
+      .slide {
+        height: 250px;
+        min-width: 278px;
+        max-width: 278px;
+        background: #ffa4eb;
+        position: relative;
+        .asterisk {
+          position: absolute;
+          bottom: -1rem;
+          right: 0.5rem;
+          opacity: 0.8;
+          font-size: 10px;
+          z-index: 2;
+        }
+        .text {
+          width: 100%;
+          height: 90px;
+          background: inherit;
+          display: flex;
+          flex-direction: column;
+          padding: 1rem 2rem;
+          line-height: 1.5rem;
+          span {
+            color: $secondaryColor;
+            font-weight: 300;
+          }
+          .thick {
+            font-family: $titleFont;
+            font-weight: 800;
+            font-size: 20px;
+          }
+        }
+        .product {
+          width: 100%;
+          height: calc(250px - 90px);
+          object-fit: cover;
+        }
+        .cta {
+          position: absolute;
+          left: 1rem;
+          bottom: 1rem;
+          padding: 0.5rem 1rem;
+          outline: none;
+          border: none;
+          background: $lightSecondary;
+          cursor: pointer;
+          transition: 0.2s;
+          &:hover {
+            opacity: 0.8;
+          }
+          svg {
+            color: $mainColor;
+          }
+        }
+      }
+      .slide3 {
+        background: #fff162;
+      }
+      .slide4 {
+        background: #dcedff;
+      }
+    }
+  }
+  .next,
+  .previous {
+    outline: none;
+    border: none;
+    position: absolute;
+    left: calc(100vw - 2.5rem);
+    bottom: calc(250px / 3);
+    padding: 0.5rem 1rem;
+    outline: none;
+    border: 1px solid $blackText;
+    background: $mainColor;
+
+    @include maxContent {
+      display: none;
+    }
+
+    cursor: pointer;
+    z-index: 5;
+    svg {
+      color: $lightSecondary;
+    }
+  }
+  .previous {
+    left: 0;
+  }
+}

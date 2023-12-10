@@ -1,0 +1,36 @@
+@import "../variables.scss";
+
+.container {
+  @extend .maxWidthMain;
+  .content {
+    .current {
+      color: $blackText !important;
+    }
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    color: $lightSecondary;
+    ul {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 2rem 0;
+      gap: 1rem;
+
+      li {
+        cursor: pointer;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+    span {
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

@@ -1,0 +1,120 @@
+@import "../variables.scss";
+
+.container {
+  padding-bottom: 100px;
+  .content {
+    ul.main {
+      display: flex;
+      flex-direction: column;
+      li.main {
+        overflow-wrap: break-word;
+        cursor: pointer;
+        text-transform: capitalize;
+
+        .title {
+          pointer-events: none;
+          font-weight: 800;
+          padding: 2rem 0.5rem 0.5rem 0.5rem;
+          border-bottom: 1px solid $greyBorder;
+          display: flex;
+          justify-content: space-between;
+        }
+
+        ul.beta {
+          padding: 0.5rem 0 0 0.5rem;
+          line-height: 1.8rem;
+          text-transform: capitalize;
+          overflow: scroll;
+          transition: 0.4s;
+        }
+        ul.closed {
+          padding: 0.5rem 0 0 0.5rem;
+          line-height: 1.8rem;
+          overflow: hidden;
+          display: none;
+        }
+
+        #index3 {
+          line-height: 1rem;
+          cursor: default;
+          div {
+            display: flex;
+            align-items: center;
+            input {
+              accent-color: $lightSecondary;
+            }
+          }
+          li div * {
+            cursor: pointer;
+          }
+          svg {
+            width: 18px;
+          }
+        }
+        #index2 {
+          padding-bottom: 1rem;
+          .priceSlider {
+            .top {
+              justify-content: center;
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              gap: 0.5rem;
+              padding-bottom: 2rem;
+              input {
+                width: 60px;
+                height: 40px;
+              }
+              button {
+                width: 40px;
+                aspect-ratio: 1;
+                border: solid 1px $lightSecondary;
+                border-radius: 3px;
+                background: transparent;
+                cursor: pointer;
+                &:hover {
+                  box-shadow: inset 0px 0px 0px 1px $lightSecondary;
+                }
+                svg {
+                  color: $lightSecondary;
+                }
+              }
+            }
+          }
+          :global .rangeSlider {
+            position: relative;
+            width: 60%;
+            margin: auto;
+            height: 5px;
+            :global .range-slider__thumb {
+              height: 13px;
+              width: 13px;
+              background: $lightSecondary;
+            }
+            :global .range-slider__range {
+              background: $lightSecondary;
+              opacity: 0.8;
+            }
+          }
+        }
+        #index0,
+        #index1,
+        #index4,
+        #index5 {
+          li {
+            input {
+              cursor: pointer;
+            }
+            label {
+              cursor: pointer;
+            }
+            &:hover {
+              color: $lightSecondary;
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  }
+}

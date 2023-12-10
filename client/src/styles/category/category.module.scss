@@ -1,0 +1,22 @@
+@import "../variables.scss";
+
+.container {
+  .content {
+    @extend .maxWidthMain;
+    padding: 1rem 0 0 1rem;
+    h1 {
+      font-family: $titleFont;
+    }
+    ul {
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      @include mobile {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @include w600 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  }
+}

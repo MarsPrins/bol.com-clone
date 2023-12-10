@@ -1,0 +1,12 @@
+@import "./variables.scss";
+
+.container {
+  position: relative;
+  .content {
+    @extend .maxWidthMain;
+    h1 {
+      font-family: $titleFont;
+      padding: 2rem 0 1rem 0;
+    }
+  }
+}

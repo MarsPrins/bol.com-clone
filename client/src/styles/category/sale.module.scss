@@ -1,0 +1,53 @@
+@import "../variables.scss";
+
+.container {
+  .content {
+    @extend .maxWidthMain;
+    width: 100%;
+    .top {
+      position: relative;
+      padding: 0 0 1rem 0;
+      @include mobile {
+        padding: 1rem;
+      }
+
+      img {
+        height: 80%;
+        min-height: 300px;
+        width: 100%;
+        position: relative;
+        object-fit: contain;
+        @include w770 {
+          height: auto;
+          max-height: 360px;
+        }
+      }
+    }
+    .saleList {
+    }
+    .saleItems {
+      padding-top: 2rem;
+      h1 {
+        font-family: $titleFont;
+        padding: 2rem 1rem;
+      }
+      .titles {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        h2.category {
+          font-family: $titleFont;
+          text-transform: capitalize;
+          padding: 2rem 1rem 1rem;
+        }
+        .products {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          @include w770 {
+            grid-template-columns: repeat(3, 1fr);
+          }
+        }
+      }
+    }
+  }
+}

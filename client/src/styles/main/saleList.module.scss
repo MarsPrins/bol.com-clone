@@ -1,0 +1,62 @@
+@import "../variables.scss";
+
+.saleList {
+  position: relative;
+  padding: 1rem;
+  .content {
+    @extend .maxWidthMain;
+    position: relative;
+    h2 {
+      font-family: $titleFont;
+      font-weight: 900;
+      margin-bottom: 1rem;
+      font-size: 22px;
+    }
+    ul {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      overscroll-behavior-x: none;
+
+      overflow-x: scroll;
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none;
+      li {
+        position: relative;
+        width: 180px;
+        height: 306px;
+      }
+    }
+    .next,
+    .previous {
+      outline: none;
+      border: none;
+      position: absolute;
+      right: -1rem;
+      bottom: calc(306px / 3);
+      padding: 0.5rem 1rem;
+      outline: none;
+      border: 1px solid $blackText;
+      background: $mainColor;
+
+      @include maxContent {
+        display: none;
+      }
+
+      cursor: pointer;
+      z-index: 5;
+      svg {
+        color: $lightSecondary;
+      }
+    }
+    .previous {
+      left: -1rem;
+      right: unset;
+    }
+  }
+}
