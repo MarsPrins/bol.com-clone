@@ -52,11 +52,13 @@ function Quantity(props) {
       };
       console.log(data);
 
-      const res = await axios.put(`${apiUrl}/carts/${p.userId}`, data, {
-        headers: {
-          token: token,
-        },
-      });
+      const res = await axios
+        .put(`${apiUrl}/carts/${p.userId}`, data, {
+          headers: {
+            token: token,
+          },
+        })
+        .then((res) => res.data);
       console.log(res);
     }
   };

@@ -63,9 +63,6 @@ function Atc(props) {
       console.log(data);
 
       localStorage.setItem("cart", JSON.stringify(data));
-      setTimeout(function () {
-        setNoti(false);
-      }, 400);
     } else {
       if (cartRes === null) {
         // if not create one
@@ -116,20 +113,32 @@ function Atc(props) {
             console.log("already in cart");
             const token = Cookies.get("token");
 
-            const data = {
-              quantity: productsArray[index].quantity + 1,
-            };
+            const q = productsArray[index].quantity + 1;
 
-            const res = await axios.put(
-              `${apiUrl}/carts/${userId}/${productId}`,
-              data,
-              {
+            const oldProducts = productsArray;
+
+            function findId(item) {
+              return item.productId === productId;
+            }
+
+            const i = oldProducts.findIndex(findId);
+
+            oldProducts[i].quantity = Number(q);
+
+            const data = {
+              userId: userId,
+              products: oldProducts,
+            };
+            console.log(data);
+
+            const res = await axios
+              .put(`${apiUrl}/carts/${userId}`, data, {
                 headers: {
                   token: token,
                 },
-              }
-            );
-            console.log(res.data);
+              })
+              .then((res) => res.data);
+            console.log(res);
           } else {
             productsArray.push({
               productId: productId,
