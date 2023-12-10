@@ -6,7 +6,7 @@ import useApiUrl from "@/components/apiUrl";
 import RatingComp from "@/components/products/Rating";
 import Third from "@/components/products/productPage/Third";
 
-export default async function page({ params }) {
+export default async function Page({ params }) {
   const productId = params.productId;
 
   const apiUrl = useApiUrl();

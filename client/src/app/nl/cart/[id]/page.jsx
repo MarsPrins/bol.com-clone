@@ -120,10 +120,10 @@ export default function Payment({ params }) {
           localStorage.removeItem("cart");
         }
         router.push(`/nl/orders/success/${cartData.userId}`);
-
-        // delete cart
       } catch (error) {
         console.log(error);
+        router.push(`/nl/orders/failed/`);
+
         if (error.response.data.decline_code === "insufficient_funds") {
           console.log("insufficient funds");
         }

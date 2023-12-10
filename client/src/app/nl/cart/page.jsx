@@ -4,7 +4,7 @@ import Products from "@/components/cart/products";
 import * as s from "@/styles/cart/page.module.scss";
 import { useState } from "react";
 
-function page() {
+function Page() {
   const [seed, setSeed] = useState(1);
 
   function reset() {
@@ -22,4 +22,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

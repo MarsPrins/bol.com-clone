@@ -8,24 +8,27 @@ import { useState } from "react";
 import Cookies from "js-cookie";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import useApiUrl from "@/components/apiUrl";
 
 // add items to cart
 // show items in cart
 // pay with stripe ( lamaDev tut afkijken )
 // crud in cart ( delete, change amount etc )
 
-export default function login() {
+export default function Login() {
   const [errorMessage, setErrorMessage] = useState("");
   const [passwordType, setPasswordType] = useState("password");
 
   const router = useRouter();
+
+  const apiUrl = useApiUrl();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       setErrorMessage("");
-      const res = await axios.post(`http://localhost:3001/api/v1/auth/login`, {
+      const res = await axios.post(`${apiUrl}/auth/login`, {
         email: e.target[0].value,
         password: e.target[1].value,
       });
@@ -45,7 +48,7 @@ export default function login() {
   return (
     <div className={s.container}>
       <div className={s.content}>
-        <h1>Login</h1>
+        <h1>Inloggen</h1>
         <form onSubmit={handleSubmit}>
           <input
             className={s.email}

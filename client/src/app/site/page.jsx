@@ -1,7 +1,7 @@
 import React from "react";
 
-function page() {
-  // welcome page
+function Page() {
+  // welcome Page
 
   return (
     <div className={s.container}>
@@ -16,4 +16,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

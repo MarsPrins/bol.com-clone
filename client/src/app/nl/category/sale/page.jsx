@@ -6,7 +6,7 @@ import * as s from "@/styles/category/sale.module.scss";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-async function page() {
+async function Page() {
   const productsAmount = 6;
 
   const apiUrl = useApiUrl();
@@ -65,4 +65,4 @@ async function page() {
   );
 }
 
-export default page;
+export default Page;

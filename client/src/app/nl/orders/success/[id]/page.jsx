@@ -5,7 +5,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 
-function page({ params }) {
+function Page({ params }) {
   const [receipt, setReceipt] = useState({});
   const apiUrl = useApiUrl();
   const userId = params.id;
@@ -22,9 +22,9 @@ function page({ params }) {
   return (
     <>
       <div>successfully ordered!</div>
-      <div>{receipt && JSON.stringify(receipt, null, 2)}</div>
+      {/* <div>{receipt && JSON.stringify(receipt, null, 2)}</div> */}
     </>
   );
 }
 
-export default page;
+export default Page;

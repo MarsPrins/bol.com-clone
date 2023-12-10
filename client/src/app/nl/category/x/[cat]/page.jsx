@@ -3,7 +3,7 @@ import useApiUrl from "@/components/apiUrl";
 import React from "react";
 import BigProduct from "@/components/products/BigProduct";
 
-async function page({ params }) {
+async function Page({ params }) {
   const apiUrl = useApiUrl();
 
   const res = await fetch(`${apiUrl}/products/?category=${params.cat}`).then(
@@ -27,4 +27,4 @@ async function page({ params }) {
   );
 }
 
-export default page;
+export default Page;

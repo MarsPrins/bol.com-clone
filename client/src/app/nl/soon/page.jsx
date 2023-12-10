@@ -1,7 +1,7 @@
 import * as s from "@/styles/comingSoon.module.scss";
 import Link from "next/link";
 
-function page() {
+function Page() {
   return (
     <div className={s.container}>
       <div className={s.content}>
@@ -39,4 +39,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

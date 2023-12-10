@@ -4,7 +4,7 @@ import WishlistProducts from "@/components/products/WishlistProducts";
 import * as s from "@/styles/wishlist.module.scss";
 import { useState } from "react";
 
-export default function page() {
+export default function Page() {
   const [seed, setSeed] = useState(1);
   const reset = () => {
     setSeed(Math.random());

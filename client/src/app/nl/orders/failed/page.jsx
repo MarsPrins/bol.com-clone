@@ -1,6 +1,5 @@
-function page({ params }) {
-  const userId = params.id;
-  return <div>{userId}</div>;
+function Page() {
+  return <div>Error occured, try again</div>;
 }
 
-export default page;
+export default Page;

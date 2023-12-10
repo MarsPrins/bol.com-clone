@@ -30,7 +30,7 @@ const Legal = () => {
               <Link href="/nl/soon">Cookies</Link>
             </li>
             <li>
-              <Link href="/nl/soon">©</Link> 1993-{currYear} Mars.prins
+              <Link href="/nl/soon">©</Link> {currYear} Mars Prins
             </li>
           </ul>
         </div>
