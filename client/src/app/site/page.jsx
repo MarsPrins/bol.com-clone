@@ -1,5 +1,3 @@
-import React from "react";
-
 function Page() {
   // welcome Page
 
@@ -8,8 +6,8 @@ function Page() {
       <div className={s.content}>
         <span className={s.welcom}>Welcome</span>
         <p className={s.disclaimer}>
-          this website is purely for my portfolio, you can't buy things here
-          with real money.
+          {`this website is purely for my portfolio, you can't buy things here
+          with real money.`}
         </p>
       </div>
     </div>

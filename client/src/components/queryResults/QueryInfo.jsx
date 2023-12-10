@@ -38,7 +38,9 @@ function QueryInfo(props) {
   return (
     <div className={s.container}>
       <div className={s.content}>
-        <h1>'{props.title ? props.title : "loading..."}' in alle artikelen</h1>
+        <h1>
+          {`'${props.title ? props.title : "loading..."}'`} in alle artikelen
+        </h1>
         <button className={s.filter}>
           <svg viewBox="0 0 14 14">
             <path

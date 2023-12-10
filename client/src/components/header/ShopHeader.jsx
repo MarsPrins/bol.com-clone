@@ -29,11 +29,11 @@ function ShopHeader() {
   };
 
   const get = async () => {
-    const apiUrl = useApiUrl();
     const res = await fetch(`${apiUrl}/products/categories/`);
     const data = await res.json();
     const arr = categoryArray(data);
     setArray(arr);
+    const apiUrl = useApiUrl();
   };
   useEffect(() => {
     get();

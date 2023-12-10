@@ -8,9 +8,9 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
-import useApiUrl from "../apiUrl";
 import categoryArray from "../categoryArray";
 import Loading from "../Loading";
+import useApiUrl from "../apiUrl";
 
 const CategoryList = () => {
   const [data, setData] = useState([]);
@@ -24,7 +24,6 @@ const CategoryList = () => {
 
   useEffect(() => {
     const get = async () => {
-      const apiUrl = useApiUrl();
       const res = await fetch(`${apiUrl}/products/categories/`);
       const data = await res.json();
       const arr = categoryArray(data);
