@@ -20,6 +20,9 @@ const CategoryList = () => {
     width: null,
     height: null,
   });
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const [showLeftButton, setShowLeftButton] = useState(false);
+  const [showRightButton, setShowRightButton] = useState(true);
 
   const apiUrl = useApiUrl();
 
@@ -41,6 +44,29 @@ const CategoryList = () => {
   }, []);
   const scroll = useRef(null);
 
+  useEffect(() => {
+    const container = scroll.current;
+
+    const handleScroll = () => {
+      const newScrollLeft = container.scrollLeft;
+      setScrollLeft(newScrollLeft);
+
+      const isLeftButtonVisible = newScrollLeft > 0;
+      const isRightButtonVisible =
+        newScrollLeft < container.scrollWidth - container.clientWidth;
+
+      setShowLeftButton(isLeftButtonVisible);
+      setShowRightButton(isRightButtonVisible);
+    };
+
+    container.addEventListener("scroll", handleScroll);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      container.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   if (screenSize.width !== null && scrollAmount === null) {
     if (screenSize.width >= 770) {
       setScrollAmount(267);
@@ -53,11 +79,14 @@ const CategoryList = () => {
     const speedUp = 5;
     const maxTime = scrollAmount / speedUp;
     let time = 0;
+
+    const container = scroll.current;
+
     const interval = setInterval(() => {
       if (m === "minus") {
-        scroll.current.scrollLeft -= speedUp;
+        container.scrollLeft -= speedUp;
       } else {
-        scroll.current.scrollLeft += speedUp;
+        container.scrollLeft += speedUp;
       }
       time = time + 1;
       if (time >= maxTime) {
@@ -97,22 +126,26 @@ const CategoryList = () => {
             </>
           )}
         </ul>
-        <button
-          onClick={() => {
-            handleArrows();
-          }}
-          className={s.next}
-        >
-          <FontAwesomeIcon icon={faChevronRight} />
-        </button>
-        <button
-          onClick={() => {
-            handleArrows("minus");
-          }}
-          className={s.previous}
-        >
-          <FontAwesomeIcon icon={faChevronLeft} />
-        </button>
+        {showRightButton && (
+          <button
+            onClick={() => {
+              handleArrows();
+            }}
+            className={s.next}
+          >
+            <FontAwesomeIcon icon={faChevronRight} />
+          </button>
+        )}
+        {showLeftButton && (
+          <button
+            onClick={() => {
+              handleArrows("minus");
+            }}
+            className={s.previous}
+          >
+            <FontAwesomeIcon icon={faChevronLeft} />
+          </button>
+        )}
       </div>
     </section>
   );

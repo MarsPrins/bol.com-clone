@@ -6,11 +6,37 @@ import {
   faChevronLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
 function Feautured() {
   const scroll = useRef(null);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const [showLeftButton, setShowLeftButton] = useState(false);
+  const [showRightButton, setShowRightButton] = useState(true);
+
+  useEffect(() => {
+    const container = scroll.current;
+
+    const handleScroll = () => {
+      const newScrollLeft = container.scrollLeft;
+      setScrollLeft(newScrollLeft);
+
+      const isLeftButtonVisible = newScrollLeft > 0;
+      const isRightButtonVisible =
+        newScrollLeft < container.scrollWidth - container.clientWidth;
+
+      setShowLeftButton(isLeftButtonVisible);
+      setShowRightButton(isRightButtonVisible);
+    };
+
+    container.addEventListener("scroll", handleScroll);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      container.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const scrollSmooth = (e, m) => {
     const maxTime = e / 3;
@@ -125,22 +151,26 @@ function Feautured() {
           </div>
         </div>
       </div>
-      <button
-        onClick={() => {
-          handleArrows(290);
-        }}
-        className={s.next}
-      >
-        <FontAwesomeIcon icon={faChevronRight} />
-      </button>
-      <button
-        onClick={() => {
-          handleArrows(290, "minus");
-        }}
-        className={s.previous}
-      >
-        <FontAwesomeIcon icon={faChevronLeft} />
-      </button>
+      {showRightButton && (
+        <button
+          onClick={() => {
+            handleArrows(290);
+          }}
+          className={s.next}
+        >
+          <FontAwesomeIcon icon={faChevronRight} />
+        </button>
+      )}
+      {showLeftButton && (
+        <button
+          onClick={() => {
+            handleArrows(290, "minus");
+          }}
+          className={s.previous}
+        >
+          <FontAwesomeIcon icon={faChevronLeft} />
+        </button>
+      )}
     </section>
   );
 }

@@ -15,10 +15,36 @@ import useApiUrl from "../apiUrl";
 export default function SaleList() {
   const [data, setData] = useState();
   const [scrollAmount, setScrollAmount] = useState(200);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const [showLeftButton, setShowLeftButton] = useState(false);
+  const [showRightButton, setShowRightButton] = useState(true);
 
   const apiUrl = useApiUrl();
 
   const scroll = useRef(null);
+
+  useEffect(() => {
+    const container = scroll.current;
+
+    const handleScroll = () => {
+      const newScrollLeft = container.scrollLeft;
+      setScrollLeft(newScrollLeft);
+
+      const isLeftButtonVisible = newScrollLeft > 0;
+      const isRightButtonVisible =
+        newScrollLeft < container.scrollWidth - container.clientWidth;
+
+      setShowLeftButton(isLeftButtonVisible);
+      setShowRightButton(isRightButtonVisible);
+    };
+
+    container.addEventListener("scroll", handleScroll);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      container.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const scrollSmooth = (m) => {
     const speedUp = 5;
@@ -71,22 +97,26 @@ export default function SaleList() {
             </>
           )}
         </ul>
-        <button
-          onClick={() => {
-            handleArrows();
-          }}
-          className={s.next}
-        >
-          <FontAwesomeIcon icon={faChevronRight} />
-        </button>
-        <button
-          onClick={() => {
-            handleArrows("minus");
-          }}
-          className={s.previous}
-        >
-          <FontAwesomeIcon icon={faChevronLeft} />
-        </button>
+        {showRightButton && (
+          <button
+            onClick={() => {
+              handleArrows();
+            }}
+            className={s.next}
+          >
+            <FontAwesomeIcon icon={faChevronRight} />
+          </button>
+        )}
+        {showLeftButton && (
+          <button
+            onClick={() => {
+              handleArrows("minus");
+            }}
+            className={s.previous}
+          >
+            <FontAwesomeIcon icon={faChevronLeft} />
+          </button>
+        )}
       </div>
     </section>
   );
