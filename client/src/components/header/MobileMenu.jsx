@@ -99,42 +99,54 @@ function MobileMenu(props) {
                   </Link>
                 </li>
                 <li>
-                  <div className={`${s.title} ${s.border}`}>
-                    <span>Aanbevolen</span>
-                    <FontAwesomeIcon
-                      className={s.closed}
-                      icon={faChevronDown}
-                    />
-                  </div>
+                  <Link onClick={handleClick} href={"/nl/category/sale"}>
+                    <div className={`${s.title} ${s.border}`}>
+                      <span>Aanbevolen</span>
+                      <FontAwesomeIcon
+                        className={s.closed}
+                        icon={faChevronDown}
+                      />
+                    </div>
+                  </Link>
                 </li>
                 <li>
-                  <div className={`${s.title} ${s.big}`}>
-                    <span>Najaarsmode</span>
-                    <FontAwesomeIcon
-                      className={s.closed}
-                      icon={faChevronDown}
-                    />
-                  </div>
+                  <Link href={"/nl/soon"}>
+                    <div className={`${s.title} ${s.big}`}>
+                      <span>Najaarsmode</span>
+                      <FontAwesomeIcon
+                        className={s.closed}
+                        icon={faChevronDown}
+                      />
+                    </div>
+                  </Link>
                 </li>
               </ul>
             </div>
             <div className={s.account}>
               <ul>
                 <li>
-                  <span>Zakelijk</span>
-                  <FontAwesomeIcon icon={faChevronDown} />
+                  <Link href={"/nl/soon"}>
+                    <span>Zakelijk</span>
+                    <FontAwesomeIcon icon={faChevronDown} />
+                  </Link>
                 </li>
                 <li>
-                  <span>Cadeaukaart</span>
-                  <FontAwesomeIcon icon={faChevronDown} />
+                  <Link href={"/nl/soon"}>
+                    <span>Cadeaukaart</span>
+                    <FontAwesomeIcon icon={faChevronDown} />
+                  </Link>
                 </li>
                 <li>
-                  <span>Bestelstatus</span>
-                  <FontAwesomeIcon icon={faChevronDown} />
+                  <Link href={"/nl/soon"}>
+                    <span>Bestelstatus</span>
+                    <FontAwesomeIcon icon={faChevronDown} />
+                  </Link>
                 </li>
                 <li>
-                  <span>Klantenservice</span>
-                  <FontAwesomeIcon icon={faChevronDown} />
+                  <Link href={"/nl/soon"}>
+                    <span>Klantenservice</span>
+                    <FontAwesomeIcon icon={faChevronDown} />
+                  </Link>
                 </li>
               </ul>
             </div>

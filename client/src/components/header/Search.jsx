@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import useApiUrl from "../apiUrl";
 import axios from "axios";
 
-const initialState = { selectedIndex: 0 };
+const initialState = { selectedIndex: -1 };
 
 export default function Search() {
   const [data, setData] = useState([]);
@@ -78,6 +78,7 @@ export default function Search() {
 
   const handleSearch = () => {
     // if (isClient) {
+    state.selectedIndex = -1;
     const x = input.replace(/\s/g, "+");
     router.push(`/nl/q/${x}/1?view=list`);
     inputRef.current.blur();
