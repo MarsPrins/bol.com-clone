@@ -64,14 +64,8 @@ export default function Products(props) {
 
     //
 
-    console.log(
-      newProducts.sort(function (a, b) {
-        return b.reviewsAmnt - a.reviewsAmnt;
-      })
-    );
-
     if (sort === "relevance") {
-      newProducts = newProducts;
+      newProducts = data;
     } else if (sort === "rating") {
       newProducts = newProducts.sort(function (a, b) {
         return b.starRating - a.starRating;

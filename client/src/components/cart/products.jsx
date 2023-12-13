@@ -28,6 +28,8 @@ export default function Products({ onDelete }) {
   const token = Cookies.get("token");
   const userId = parseJwt(token).id;
 
+  console.log(token, userId);
+
   const router = useRouter();
 
   const fetchCart = async () => {
@@ -81,6 +83,7 @@ export default function Products({ onDelete }) {
     let i = 0;
     while (i < cartItems.length) {
       const productId = cartItems[i].productId;
+      console.log(`${apiUrl}/products/find/${productId}`);
       const productRes = await axios.get(
         `${apiUrl}/products/find/${productId}`
       );
