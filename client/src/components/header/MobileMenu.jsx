@@ -41,7 +41,7 @@ function MobileMenu(props) {
         <div className={open ? `${s.menu} ${s.active}` : s.menu}>
           <div className={s.top}>
             <div className={s.countries}>
-              <ul>
+              {/* <ul>
                 <li role="button">
                   <Link href="#">
                     <Image
@@ -62,7 +62,7 @@ function MobileMenu(props) {
                     />
                   </Link>
                 </li>
-              </ul>
+              </ul> */}
             </div>
             <div onClick={handleClick} className={s.cross}>
               <FontAwesomeIcon icon={faX} />
