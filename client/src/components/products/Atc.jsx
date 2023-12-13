@@ -26,17 +26,15 @@ function Atc(props) {
     const userId = parseJwt(token).id;
 
     // check if user has a cart
-    const cartRes = await fetch(`${apiUrl}/carts/find/${userId}`, {
-      headers: {
-        token: token,
-      },
-    })
-      .then((res) => res.json())
-      .then((res) => (typeof res === "string" ? "not logged in" : res));
+    const cartRes = userId
+      ? await fetch(`${apiUrl}/carts/find/${userId}`, {
+          headers: {
+            token: token,
+          },
+        }).then((res) => res.json())
+      : "not logged in";
 
     if (cartRes === "not logged in") {
-      console.log(cartRes);
-
       const exists = localStorage.getItem("cart");
 
       // get index of the object that exists
@@ -56,11 +54,9 @@ function Atc(props) {
 
       index < 0
         ? exists && !size
-          ? data.push({ productId: productId, quantity: 1 })
-          : data.push({ productId: productId, quantity: 1, size: size })
+          ? undefined
+          : undefined
         : (data[index].quantity = Number(data[index].quantity) + 1);
-
-      console.log(data);
 
       localStorage.setItem("cart", JSON.stringify(data));
     } else {
@@ -92,7 +88,6 @@ function Atc(props) {
               token: token,
             },
           });
-          console.log(res.data);
           setTimeout(function () {}, 400);
         } catch (error) {
           console.log(error);
@@ -110,7 +105,6 @@ function Atc(props) {
             (p) => p.productId === productId
           );
           if (index >= 0) {
-            console.log("already in cart");
             const token = Cookies.get("token");
 
             const q = productsArray[index].quantity + 1;
@@ -129,7 +123,6 @@ function Atc(props) {
               userId: userId,
               products: oldProducts,
             };
-            console.log(data);
 
             const res = await axios
               .put(`${apiUrl}/carts/${userId}`, data, {
@@ -138,7 +131,6 @@ function Atc(props) {
                 },
               })
               .then((res) => res.data);
-            console.log(res);
           } else {
             productsArray.push({
               productId: productId,
@@ -153,7 +145,6 @@ function Atc(props) {
                 token: token,
               },
             });
-            console.log(res.data);
             setTimeout(function () {}, 400);
           }
         } catch (error) {

@@ -632,6 +632,9 @@
             font-size: 14px;
             position: relative;
             padding: 0.5rem 0;
+            svg {
+              padding-left: 0.5rem;
+            }
             &::after {
               content: "";
               position: absolute;
