@@ -159,14 +159,17 @@
         position: absolute;
         bottom: 1.5rem;
         left: 1.5rem;
-        padding: 0.5rem 1rem;
         outline: none;
         border: none;
-        background: $lightSecondary;
-        cursor: pointer;
         transition: 0.2s;
+        background: transparent;
         &:hover {
           opacity: 0.8;
+        }
+        a {
+          padding: 0.5rem 1rem;
+          background: $lightSecondary;
+          cursor: pointer;
         }
         svg {
           color: $mainColor;

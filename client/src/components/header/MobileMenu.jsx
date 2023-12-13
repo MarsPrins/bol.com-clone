@@ -110,9 +110,9 @@ function MobileMenu(props) {
                   </Link>
                 </li>
                 <li>
-                  <Link href={"/nl/soon"}>
+                  <Link onClick={handleClick} href={"/nl/soon"}>
                     <div className={`${s.title} ${s.big}`}>
-                      <span>Najaarsmode</span>
+                      <span>Webdevelopment</span>
                       <FontAwesomeIcon
                         className={s.closed}
                         icon={faChevronDown}
@@ -125,25 +125,25 @@ function MobileMenu(props) {
             <div className={s.account}>
               <ul>
                 <li>
-                  <Link href={"/nl/soon"}>
+                  <Link onClick={handleClick} href={"/nl/soon"}>
                     <span>Zakelijk</span>
                     <FontAwesomeIcon icon={faChevronDown} />
                   </Link>
                 </li>
                 <li>
-                  <Link href={"/nl/soon"}>
+                  <Link onClick={handleClick} href={"/nl/soon"}>
                     <span>Cadeaukaart</span>
                     <FontAwesomeIcon icon={faChevronDown} />
                   </Link>
                 </li>
                 <li>
-                  <Link href={"/nl/soon"}>
+                  <Link onClick={handleClick} href={"/nl/soon"}>
                     <span>Bestelstatus</span>
                     <FontAwesomeIcon icon={faChevronDown} />
                   </Link>
                 </li>
                 <li>
-                  <Link href={"/nl/soon"}>
+                  <Link onClick={handleClick} href={"/nl/soon"}>
                     <span>Klantenservice</span>
                     <FontAwesomeIcon icon={faChevronDown} />
                   </Link>

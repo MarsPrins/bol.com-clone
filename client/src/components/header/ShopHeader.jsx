@@ -88,7 +88,7 @@ function ShopHeader() {
                   <Link href="/nl/soon">Klantenservice</Link>
                 </button>
               </li>
-              <li>
+              {/* <li>
                 <button>
                   <Link href="/nl/soon">
                     <Image
@@ -111,7 +111,7 @@ function ShopHeader() {
                     />
                   </Link>
                 </button>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

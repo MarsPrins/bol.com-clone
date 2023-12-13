@@ -19,7 +19,7 @@
 
       .comingCont {
         rotate: -10deg;
-        font-family: $logoFont;
+        font-family: "Logo";
         color: $secondaryColor;
         font-size: 50px;
         font-weight: 900;
@@ -65,7 +65,7 @@
         gap: 2rem;
         max-width: 500px;
         .head {
-          font-family: $logoFont;
+          font-family: "Logo";
           font-size: 34px;
           letter-spacing: -2px;
           line-height: 1.5ch;

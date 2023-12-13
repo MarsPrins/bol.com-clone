@@ -100,9 +100,11 @@ function Feautured() {
               alt=""
               className={s.product}
             />
-            <button className={s.cta}>
-              <FontAwesomeIcon icon={faChevronRight} />
-            </button>
+            <Link href={"/nl/soon"}>
+              <button className={s.cta}>
+                <FontAwesomeIcon icon={faChevronRight} />
+              </button>
+            </Link>
             <span className={s.asterisk}>*op advies prijs</span>
           </div>
           <div id="slide2" className={`${s.slide} ${s.slide2}`}>
@@ -115,9 +117,11 @@ function Feautured() {
               alt=""
               className={s.product}
             />
-            <button className={s.cta}>
-              <FontAwesomeIcon icon={faChevronRight} />
-            </button>
+            <Link href={"/nl/soon"}>
+              <button className={s.cta}>
+                <FontAwesomeIcon icon={faChevronRight} />
+              </button>
+            </Link>
             <span className={s.asterisk}>*op advies prijs</span>
           </div>
           <div id="slide3" className={`${s.slide} ${s.slide3}`}>
@@ -130,9 +134,11 @@ function Feautured() {
               alt=""
               className={s.product}
             />
-            <button className={s.cta}>
-              <FontAwesomeIcon icon={faChevronRight} />
-            </button>
+            <Link href={"/nl/soon"}>
+              <button className={s.cta}>
+                <FontAwesomeIcon icon={faChevronRight} />
+              </button>
+            </Link>
             <span className={s.asterisk}>*op meest getoonde prijs</span>
           </div>
           <div id="slide4" className={`${s.slide} ${s.slide4}`}>
@@ -145,9 +151,11 @@ function Feautured() {
               alt=""
               className={s.product}
             />
-            <button className={s.cta}>
-              <FontAwesomeIcon icon={faChevronRight} />
-            </button>
+            <Link href={"/nl/soon"}>
+              <button className={s.cta}>
+                <FontAwesomeIcon icon={faChevronRight} />
+              </button>
+            </Link>
           </div>
         </div>
       </div>

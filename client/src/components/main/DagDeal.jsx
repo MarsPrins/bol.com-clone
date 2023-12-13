@@ -34,7 +34,7 @@ const BigPromo = () => {
   return isClient ? (
     <section className={s.bigPromo}>
       <div className={s.content}>
-        <Link href="#">
+        <Link href="/nl/soon">
           <div className={s.left}>
             <div className={s.first}>
               <div className={s.title}>
@@ -82,7 +82,9 @@ const BigPromo = () => {
             alt=""
           />
           <button className={s.cta}>
-            <FontAwesomeIcon icon={faChevronRight} />
+            <Link href={"/nl/soon"}>
+              <FontAwesomeIcon icon={faChevronRight} />
+            </Link>
           </button>
         </div>
       </div>
