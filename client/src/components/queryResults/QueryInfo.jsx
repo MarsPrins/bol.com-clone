@@ -30,7 +30,7 @@ function QueryInfo(props) {
     id === "sort" ? setSort(value) : id === "view" ? setView(value) : null;
     params.set(id, value);
     router.push(`q?${params.toString()}`);
-    window.location.reload(false);
+    // window.location.reload(false);
   };
 
   const openModal = () => {
