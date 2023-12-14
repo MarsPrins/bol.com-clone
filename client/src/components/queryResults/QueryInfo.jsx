@@ -29,7 +29,7 @@ function QueryInfo(props) {
     const id = e.target.id;
     id === "sort" ? setSort(value) : id === "view" ? setView(value) : null;
     params.set(id, value);
-    router.push(`q?${params.toString()}`);
+    router.push(`/nl/q/${props.query}/${props.page}?${params.toString()}`);
     // window.location.reload(false);
   };
 

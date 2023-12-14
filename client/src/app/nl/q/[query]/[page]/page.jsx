@@ -39,7 +39,7 @@ export default async function QueryResults({ params }) {
         <Filter data={data} />
       </div>
       <div className={s.right}>
-        <QueryInfo data={data} title={query} />
+        <QueryInfo query={query} page={params.page} data={data} title={query} />
         <Products
           page={params.page}
           query={query}
