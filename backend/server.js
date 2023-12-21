@@ -30,5 +30,3 @@ app.use("/api/v1/checkout", stripeRoute);
 app.listen(process.env.PORT || 3001, () => {
   console.log("backend is working on port 3001");
 });
-
-mongoose.disconnect();
