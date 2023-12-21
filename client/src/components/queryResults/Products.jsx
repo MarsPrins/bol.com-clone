@@ -16,8 +16,6 @@ export default function Products(props) {
 
   const router = useRouter();
 
-  const handleNoti = (e) => {};
-
   const fetchData = async (params) => {
     const pagesMax = props.resultsAmount / props.productsLimit;
     console.log("Max amount of pages", pagesMax);
